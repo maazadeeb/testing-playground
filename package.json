@@ -5,14 +5,19 @@
   "main": "index.html",
   "scripts": {
     "start": "parcel index.html --open",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html",
+    "server": "live-server"
   },
   "dependencies": {
     "@testing-library/dom": "7.5.6"
   },
   "devDependencies": {
     "@babel/core": "7.2.0",
+    "live-server": "^1.2.1",
     "parcel-bundler": "^1.12.4"
   },
-  "keywords": ["javascript", "starter"]
+  "keywords": [
+    "javascript",
+    "starter"
+  ]
 }
