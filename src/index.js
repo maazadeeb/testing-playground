@@ -1,5 +1,4 @@
-import "./styles.css";
-import { queries } from "@testing-library/dom";
+import { queries } from "https://cdn.pika.dev/@testing-library/dom@7.5.6";
 
 const loadButton = document.getElementById("load-button");
 const helpButton = document.getElementById("help-button");
@@ -36,11 +35,11 @@ close.addEventListener("click", closePopup);
 executeButton.addEventListener("click", () => execute(queryInput.value));
 resetHighlightButton.addEventListener("click", resetHighlight);
 
-htmlInput.addEventListener("input", e => {
+htmlInput.addEventListener("input", (e) => {
   output.innerHTML = e.target.value;
 });
 
-queryInput.addEventListener("keydown", e => {
+queryInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     e.preventDefault();
     execute(e.target.value);
@@ -61,19 +60,19 @@ function execute(query) {
   );
   Promise.resolve()
     .then(() => execQuery(queries, output, query))
-    .then(elements => {
+    .then((elements) => {
       if (!Array.isArray(elements)) elements = [elements];
-      elements.forEach(e => e.classList.add("highlight"));
+      elements.forEach((e) => e.classList.add("highlight"));
       prev = elements;
     })
-    .catch(e => {
+    .catch((e) => {
       console.log(e);
       setError(e);
     });
 }
 
 function resetHighlight() {
-  prev.forEach(e => e.classList.remove("highlight"));
+  prev.forEach((e) => e.classList.remove("highlight"));
   prev = [];
 }
 
