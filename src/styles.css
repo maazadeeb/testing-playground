@@ -66,6 +66,12 @@ button {
   flex: 0 1 4rem;
 }
 
+@media only screen and (max-width: 600px) {
+  .header {
+    font-size: 1.5rem;
+  }
+}
+
 /* App */
 .app {
   display: flex;
