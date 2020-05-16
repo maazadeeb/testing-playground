@@ -1,0 +1,206 @@
+/* Variables */
+:root {
+  --color-yellow: #ffd31d;
+  --border: 1px solid black;
+}
+
+/* Resets */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; /* 10px */
+  font-family: sans-serif;
+}
+
+/* Elements */
+button {
+  padding: 0.5rem;
+}
+
+/* Some common */
+.textarea {
+  width: 100%;
+  height: 100%;
+  resize: none;
+  border: var(--border);
+  border-radius: 5px;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  box-sizing: border-box; /* Why? o_O*/
+}
+
+.label {
+  font-size: 1.5rem;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.button {
+  font-size: 1.25rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.button:active {
+  transform: scale(0.95);
+}
+
+/* Container */
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative; /* For popup*/
+}
+/* Header */
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  flex: 0 1 4rem;
+}
+
+/* App */
+.app {
+  display: flex;
+  flex: 1;
+  max-height: calc(100vh - 4rem); /* Without header */
+}
+
+@media only screen and (max-width: 600px) {
+  .app {
+    flex-direction: column;
+  }
+}
+
+/* Input area */
+.input-area {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 50%;
+  padding: 1rem;
+}
+
+.input-area > *:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.help {
+  display: flex;
+  justify-content: space-between;
+}
+
+.help > * {
+  flex-basis: 40%;
+}
+
+.html-editor {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 70%;
+}
+
+.query-editor {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 30%;
+}
+
+/* Output area */
+.output-area {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  flex: 1;
+}
+
+.output-area > *:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.output {
+  border: var(--border);
+  max-height: calc(100% - 18rem); /* Arbitrary as of now */
+  min-height: 5rem;
+  overflow: auto;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.error {
+  max-height: 10rem;
+  overflow: auto;
+}
+
+.invisible {
+  display: none;
+}
+
+.error-text {
+  font-size: 1.25rem;
+}
+
+.highlight {
+  box-shadow: 0 0 2.5rem var(--color-yellow);
+  border: 2px solid var(--color-yellow);
+  animation: pulsate 1s infinite;
+  display: inline-block; /* For the pulsate */
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Help popup */
+.popup-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1;
+}
+
+.popup-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: pink;
+  margin: 0 auto;
+  padding: 1.5rem;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  z-index: 2;
+  transition: all 0.4s;
+}
+
+.popup-content > * {
+  margin: 1rem;
+  position: relative;
+}
+
+.popup-content ol {
+  margin-left: 2rem;
+}
+
+.close {
+  font-size: 3rem;
+  position: absolute;
+  top: -0.5rem;
+  right: 0.5rem;
+  margin: 1rem;
+  cursor: pointer;
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Testing library playground</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="popup invisible" id="popup">
+        <div class="popup-backdrop" id="backdrop"></div>
+        <div class="popup-content">
+          <h2>Help</h2>
+          <span class="close" id="close">&times;</span>
+          <div class="usage">
+            <p>This app helps you try out queries as specified in the DOM Testing Library <a target="_blank" rel="noopener noreferrer" href="https://testing-library.com/docs/dom-testing-library/api-queries">docs</a>.</p>
+            <br>
+            <ol>
+              <li>First, write some HTML markup in the HTML editor area.</li>
+              <li>Find a query you're interested in.</li>
+              <li>Write the query in the query editor area and see if any elements match in the output area.</li>
+            </ol>
+            <br>
+            <p>An example query: <pre>queries.getByText(container, "username")</pre></p>
+            <br>
+            <p><strong>queries</strong> and <strong>container</strong> are special keywords. <strong>queries</strong> is an import from testing library itself, which has all the queries, and <strong>container</strong> is the output area div. These are always mandatory.</p>
+          </div>
+        </div>
+      </div>
+      <header class="header">
+        <h3>Playground for <a style="margin-left: 3px;" target="_blank" rel="noopener noreferrer" href="https://testing-library.com/">DOM Testing Library</a></h3>
+      </header>
+      <div id="app" class="app">
+        <div class="input-area">
+          <div class="help">
+            <button class="button" id="load-button">Load Example</button>
+            <button class="button" id="help-button">Quick help</button>
+          </div>
+          <div class="html-editor">
+            <label class="label" for="html-input">HTML Editor</label>
+            <textarea
+              class="textarea"
+              name="html-input"
+              id="html-input"
+              placeholder="Type your HTML here"
+            ></textarea>
+          </div>
+          <div class="query-editor">
+            <label class="label" for="query-input">Query Editor</label>
+            <textarea
+              class="textarea"
+              name="query-input"
+              id="query-input"
+              placeholder="Type your query here"
+            ></textarea>
+            <label class="label">Use <pre style="display: inline-block; font-size: 1.5rem;">queries.&LessLess;QUERY&GreaterGreater;(container, ...)</pre></label>
+          </div>
+          <button class="button" id="execute-button">
+            Execute
+          </button>
+        </div>
+        <div class="output-area">
+          <div class="error invisible" id="error">
+            <label class="label">Error!</label>
+            <div id="error-text" class="error-text"></div>
+          </div>
+          <label class="label">Output</label>
+          <div class="output" id="output">Your output will render here!</div>
+          <button class="button" id="reset-highlight-button">
+            Reset highlight
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="src/index.js"></script>
+  </body>
+</html>
