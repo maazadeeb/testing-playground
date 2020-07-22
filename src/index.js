@@ -1,4 +1,4 @@
-import { queries } from "https://cdn.pika.dev/@testing-library/dom@7.5.6";
+import { queries } from "@testing-library/dom";
 
 const loadButton = document.getElementById("load-button");
 const helpButton = document.getElementById("help-button");
